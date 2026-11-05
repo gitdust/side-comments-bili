@@ -24,9 +24,7 @@
 
 ## Demo
 
-<p align="center">
-  <img src="https://media.wanweishiyi.com/web/crafts/side-comments-bili.gif" alt="Side Comments Demo" width="100%" />
-</p>
+https://github.com/user-attachments/assets/c4d8e6f2-2677-48ed-9cf1-957bbc86f2f0
 
 ---
 
