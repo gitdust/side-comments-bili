@@ -12,6 +12,9 @@ on:
         required: false
         default: ''
 
+env:
+  ACTIONS_ALLOW_USE_UNSECURE_NODE_VERSION: true
+
 jobs:
   release:
     name: Build & Release
@@ -41,13 +44,10 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: 22
+          node-version: 24
 
-      - name: Setup pnpm
-        uses: pnpm/action-setup@v4
-        with:
-          version: 9
-          run_install: false
+      - name: Install pnpm
+        run: npm install -g pnpm@12.16.1
 
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
@@ -76,7 +76,6 @@ jobs:
           TAG="${{ github.event.inputs.tag_name || github.ref_name }}"
           ZIP_PATH="${{ steps.package.outputs.zip_path }}"
           echo "Publishing release for $TAG with $ZIP_PATH..."
-          # If release already exists for this tag, upload asset to it; otherwise create new release
           if gh release view "$TAG" >/dev/null 2>&1; then
             gh release upload "$TAG" "$ZIP_PATH" --clobber
           else
