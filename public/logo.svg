@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64" fill="none">
+  <title>Side Comments</title>
+  <g stroke="#FB7299" stroke-width="4" stroke-linecap="round" stroke-linejoin="round">
+    <path d="m17 7 7 8M38 7l-7 8"/>
+    <rect x="6" y="16" width="40" height="34" rx="9" fill="white"/>
+    <path d="m16 28 5 2m10 0 5-2M21 38l5 3 5-3M16 51v4m20-4v4"/>
+  </g>
+  <path d="M42 24h12a6 6 0 0 1 6 6v17a6 6 0 0 1-6 6h-5l-9 6V30a6 6 0 0 1 2-6Z" fill="#00AEEC" stroke="white" stroke-width="3" stroke-linejoin="round"/>
+  <path d="M46 34h8m-8 7h8" stroke="white" stroke-width="3" stroke-linecap="round"/>
+</svg>

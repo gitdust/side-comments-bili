@@ -1,0 +1,19 @@
+{
+  "name": "side-comments",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "icons": "node scripts/generate-icons.mjs",
+    "build": "node scripts/build.mjs",
+    "zip": "node scripts/pack.mjs",
+    "check": "tsc --noEmit --strict --target ES2022 --module ESNext --moduleResolution bundler --lib ES2022,DOM --types chrome src/content.ts",
+    "test": "pnpm build && node --test tests/layout.test.mjs"
+  },
+  "devDependencies": {
+    "@types/chrome": "^0.1.0",
+    "esbuild": "^0.25.0",
+    "playwright": "^1.55.0",
+    "typescript": "^5.9.0"
+  }
+}

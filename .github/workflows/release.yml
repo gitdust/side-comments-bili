@@ -1,0 +1,80 @@
+name: Build & Release Extension
+
+on:
+  push:
+    tags:
+      - 'v*'
+      - '[0-9]+*'
+  workflow_dispatch:
+    inputs:
+      tag_name:
+        description: 'Tag or version name to release (e.g. v0.1.0)'
+        required: false
+        default: ''
+
+jobs:
+  release:
+    name: Build & Release
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Verify tag is on main branch
+        if: github.event_name == 'push'
+        run: |
+          echo "Verifying that tag '${{ github.ref_name }}' belongs to the 'main' branch..."
+          git fetch origin main:refs/remotes/origin/main || git fetch origin main
+          if ! git merge-base --is-ancestor HEAD origin/main; then
+            echo "::error::Tag '${{ github.ref_name }}' (commit: $(git rev-parse HEAD)) is not an ancestor of origin/main."
+            echo "Releases can only be published from the 'main' branch."
+            echo "Please make sure your commit is merged and pushed to 'main' first (e.g. 'git push origin main --tags')."
+            exit 1
+          fi
+          echo "Verification passed: Tag is on the 'main' branch."
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 9
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'pnpm'
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Type check (TypeScript)
+        run: pnpm check
+
+      - name: Build extension
+        run: pnpm build
+
+      - name: Package extension (.zip)
+        id: package
+        run: |
+          TAG="${{ github.event.inputs.tag_name || github.ref_name }}"
+          ZIP_NAME="side-comments-${TAG}.zip"
+          mkdir -p release
+          (cd dist && zip -r "../release/${ZIP_NAME}" .)
+          echo "zip_name=${ZIP_NAME}" >> "$GITHUB_OUTPUT"
+          echo "zip_path=release/${ZIP_NAME}" >> "$GITHUB_OUTPUT"
+          echo "Successfully created release/${ZIP_NAME}"
+
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          name: Release ${{ github.event.inputs.tag_name || github.ref_name }}
+          tag_name: ${{ github.event.inputs.tag_name || github.ref_name }}
+          files: ${{ steps.package.outputs.zip_path }}
+          generate_release_notes: true
+          draft: false
+          prerelease: false
