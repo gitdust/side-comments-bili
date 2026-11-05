@@ -9,6 +9,7 @@
 </p>
 
 <p align="center">
+  <a href="https://github.com/gitdust/side-comments-bili/releases/latest"><img src="https://img.shields.io/github/v/release/gitdust/side-comments-bili?label=%E4%B8%8B%E8%BD%BD%20ZIP&color=2ea44f&style=flat-square" alt="Download Latest Release" /></a>
   <a href="https://developer.chrome.com/docs/extensions/mv3/intro/"><img src="https://img.shields.io/badge/Manifest-V3-4285F4?style=flat-square&logo=googlechrome&logoColor=white" alt="Manifest V3" /></a>
   <a href="https://www.typescriptlang.org/"><img src="https://img.shields.io/badge/TypeScript-5.9+-3178C6?style=flat-square&logo=typescript&logoColor=white" alt="TypeScript" /></a>
   <img src="https://img.shields.io/badge/Privacy-100%25%20Local-success?style=flat-square" alt="Privacy First" />
@@ -43,16 +44,21 @@
 
 ---
 
-## 安装使用
+## 📥 安装使用
 
-1. 从 [Releases](https://github.com/gitdust/side-comments-bili/releases) 下载最新的 `.zip` 压缩包并解压到本地。
-2. 打开 Chrome（或 Edge、Brave、Arc 等 Chromium 浏览器），地址栏访问：
+### 1. 下载安装包
+📦 **[前往 GitHub Releases 下载最新安装包](https://github.com/gitdust/side-comments-bili/releases/latest)**
+
+进入页面后，在 **Assets** 区域下载 `side-comments-*.zip` 并解压到本地。
+
+### 2. 加载到浏览器
+1. 打开 Chrome（或 Edge、Brave、Arc 等 Chromium 浏览器），地址栏访问：
    ```text
    chrome://extensions/
    ```
-3. 打开右上角的 **「开发者模式」**。
-4. 点击左上角的 **「加载已解压的扩展程序」**，选择解压出的文件夹（包含 `manifest.json` 的目录）。
-5. 打开任意 [B 站视频页](https://www.bilibili.com/video/)，点击右下角图标即可使用。
+2. 打开右上角的 **「开发者模式」**。
+3. 点击左上角的 **「加载已解压的扩展程序」**，选择解压出的文件夹（确保目录下直接包含 `manifest.json`）。
+4. 打开任意 [B 站视频页](https://www.bilibili.com/video/)，页面右下角即可看到侧边评论开关！
 
 ---
 

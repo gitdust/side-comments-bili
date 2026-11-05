@@ -9,6 +9,7 @@
 </p>
 
 <p align="center">
+  <a href="https://github.com/gitdust/side-comments-bili/releases/latest"><img src="https://img.shields.io/github/v/release/gitdust/side-comments-bili?label=Download%20ZIP&color=2ea44f&style=flat-square" alt="Download Latest Release" /></a>
   <a href="https://developer.chrome.com/docs/extensions/mv3/intro/"><img src="https://img.shields.io/badge/Manifest-V3-4285F4?style=flat-square&logo=googlechrome&logoColor=white" alt="Manifest V3" /></a>
   <a href="https://www.typescriptlang.org/"><img src="https://img.shields.io/badge/TypeScript-5.9+-3178C6?style=flat-square&logo=typescript&logoColor=white" alt="TypeScript" /></a>
   <img src="https://img.shields.io/badge/Privacy-100%25%20Local-success?style=flat-square" alt="Privacy First" />
@@ -43,16 +44,21 @@
 
 ---
 
-## Installation & Usage
+## 📥 Installation & Usage
 
-1. Download the latest `.zip` release from [Releases](https://github.com/gitdust/side-comments-bili/releases) and extract it.
-2. In Chrome (or Edge, Brave, Arc, etc.), navigate to:
+### 1. Download Extension
+📦 **[Download the Latest Release from GitHub](https://github.com/gitdust/side-comments-bili/releases/latest)**
+
+Download `side-comments-*.zip` from the **Assets** section and extract it locally.
+
+### 2. Load into Browser
+1. In Chrome (or Edge, Brave, Arc, etc.), navigate to:
    ```text
    chrome://extensions/
    ```
-3. Enable **"Developer mode"** in the top-right corner.
-4. Click **"Load unpacked"** in the top-left corner and select the extracted folder (the directory containing `manifest.json`).
-5. Open any [Bilibili Video](https://www.bilibili.com/video/) and click the toggle icon in the bottom-right corner.
+2. Enable **"Developer mode"** in the top-right corner.
+3. Click **"Load unpacked"** in the top-left corner and select the extracted folder (make sure `manifest.json` is directly in this directory).
+4. Open any [Bilibili Video](https://www.bilibili.com/video/) and click the toggle icon in the bottom-right corner!
 
 ---
 
