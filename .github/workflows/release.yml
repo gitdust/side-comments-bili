@@ -38,16 +38,16 @@ jobs:
           fi
           echo "Verification passed: Tag is on the 'main' branch."
 
-      - name: Setup pnpm
-        uses: pnpm/action-setup@v4
-        with:
-          version: 9
-
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: 22
-          cache: 'pnpm'
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 9
+          run_install: false
 
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
@@ -70,11 +70,17 @@ jobs:
           echo "Successfully created release/${ZIP_NAME}"
 
       - name: Create GitHub Release
-        uses: softprops/action-gh-release@v2
-        with:
-          name: Release ${{ github.event.inputs.tag_name || github.ref_name }}
-          tag_name: ${{ github.event.inputs.tag_name || github.ref_name }}
-          files: ${{ steps.package.outputs.zip_path }}
-          generate_release_notes: true
-          draft: false
-          prerelease: false
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          TAG="${{ github.event.inputs.tag_name || github.ref_name }}"
+          ZIP_PATH="${{ steps.package.outputs.zip_path }}"
+          echo "Publishing release for $TAG with $ZIP_PATH..."
+          # If release already exists for this tag, upload asset to it; otherwise create new release
+          if gh release view "$TAG" >/dev/null 2>&1; then
+            gh release upload "$TAG" "$ZIP_PATH" --clobber
+          else
+            gh release create "$TAG" "$ZIP_PATH" \
+              --title "Release $TAG" \
+              --generate-notes
+          fi
