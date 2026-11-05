@@ -24,9 +24,7 @@
 
 ## 效果演示
 
-<p align="center">
-  <img src="https://media.wanweishiyi.com/web/crafts/side-comments-bili.gif" alt="效果演示" width="100%" />
-</p>
+https://github.com/user-attachments/assets/c4d8e6f2-2677-48ed-9cf1-957bbc86f2f0
 
 ---
 
