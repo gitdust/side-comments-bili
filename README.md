@@ -22,14 +22,6 @@
 
 ---
 
-## 效果演示
-
-<p align="center">
-  <video src="assets/side-comments-bili.mp4" controls="controls" width="100%"></video>
-</p>
-
----
-
 ## 功能介绍
 
 - 📺 **视频与评论同屏**：在视频播放页右下角显示开关图标，点击即可将原生评论区移至视频右侧，充分利用宽屏。
