@@ -22,6 +22,14 @@
 
 ---
 
+## Demo
+
+<p align="center">
+  <video src="https://github.com/user-attachments/assets/e411254c-d85e-42ab-af91-378a09b3922a" controls="controls" width="100%"></video>
+</p>
+
+---
+
 ## Features
 
 - 📺 **Side-by-Side Viewing**: Shows a toggle button in the bottom-right corner of Bilibili video pages to move comments to the right of the player.
