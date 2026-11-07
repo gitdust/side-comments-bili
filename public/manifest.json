@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "Side Comments - Bilibili",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Keep Bilibili's original comments in a full-height right column.",
   "icons": {
     "16": "icons/icon16.png",

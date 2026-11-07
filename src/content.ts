@@ -168,6 +168,10 @@ const CHECK_ICON_SVG = '<svg class="side-comments-bvid-icon" viewBox="0 0 16 16"
   }
 
   function reconcileBvBadge() {
+    if (!enabled) {
+      removeBvBadge();
+      return;
+    }
     const bvid = getBvid();
     const targetH1 = document.querySelector<HTMLElement>(
       ".video-info-title-inner h1.video-title, .video-info-title-inner h1, h1.video-title, #viewbox_report h1"
